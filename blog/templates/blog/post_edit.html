@@ -1,0 +1,15 @@
+{% extends 'blog/base.html' %}
+
+{% block content %}
+    <h2>New post</h2>
+    <form method="POST" class="post-form">{% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit" class="save btn btn-secondary">Save</button>
+    </form>
+{% endblock %}
+
+<!--{{ form.as_p }} to display the form, which needs to be wrapped with an HTML form element: 
+ <form method="POST">...</form>.
+<button type="submit">Save</button> to create a Save button
+After the opening <form ...> tag, add {% csrf_token %} to make forms secure! 
+else Django will complain when trying to save the form-->
